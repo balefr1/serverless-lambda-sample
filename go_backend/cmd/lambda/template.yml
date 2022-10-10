@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: Golang whitelist api template
+
+Resources:
+  SampleApp:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: go1.x
+      Handler: main
+      Timeout: 15
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: "/{proxy+}"
+            Method: ANY
+      Environment:
+        Variables:
+          USER_IP_REGISTRY_TABLE_NAME: 
+          DYNAMODB_ENDPOINT: 
+          BASIC_AUTH_USER: test123
+          BASIC_AUTH_PASS: test123
+          CLOUDFLARE_API_EMAIL: xx
+          CLOUDFLARE_API_ACCOUNT_ID: yy
+          CLOUDFLARE_API_TOKEN: zz
+          CLOUDFLARE_API_IP_LIST_NAME: ff

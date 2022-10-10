@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+        </script>
+        <script src="remote.js"></script>
+
+    </head>
+    <body>
+        <script>
+            var api_url = api_url || "http://localhost:3000/"
+            api_url = api_url.replace(/\/$/, "");
+             function loadFiles(){
+              $.get(api_url+"/files",function(data,status){
+                    data.forEach(function(file){
+                      $('#files_table').append(`<tr><td>${file.filename}</td><td>${file.at}</td><td>${file.ip}</td><td><button style="width:30px;height:15px" onclick="showDownloadUrl('${file.filename}');"></button></td><td id="link2user_${file.filename}"></td></tr>`);
+                    });
+                });
+            }
+            function showDownloadUrl(filename){
+              $.post(api_url+"/file/"+filename+"/download",function(data,status){
+                console.log(filename)
+                    $("#link2user_"+filename).html("<button></button>")
+                    $("#url").html(data.download_url);
+                    $("#filename").attr('value',filename);
+                    console.log(data.download_url);
+                });
+            }
+            $(document).ready(function(){
+               $("#file_form").attr('action', api_url+"/files");
+              loadFiles();
+            });
+        </script>
+        <h1>Files Sample app</h1>
+
+        <form method="post" enctype="multipart/form-data" id="file_form">
+            Select image to upload:
+            <input type="file" name="file" id="file">
+            <input type="submit" value="Upload file" name="submit">
+          </form>
+        <hr>
+        <table style="border: 2px solid black;" id="files_table">
+            <tr>
+                <td>Filename</td>
+                <td>At</td>
+                <td>ip</td>
+                <td>DOWNLOAD</td>
+                <td>link</td>
+            </tr>
+
+        </table>
+        <hr>
+        Download link for <input type="text" id="filename" disabled="true"> <textarea style="height:350px;width:650px" disabled="true" type="text" id="url"></textarea>
+    </body>
+</html>

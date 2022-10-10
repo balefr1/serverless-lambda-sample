@@ -1,0 +1,1 @@
+var api_url = "https://api-testxx.com/dev"
