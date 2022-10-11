@@ -8,7 +8,7 @@ import (
 type CustomTime time.Time
 
 func (t CustomTime) MarshalJSON() ([]byte, error) {
-	stamp := fmt.Sprintf("\"%s\"", time.Time(t).Format("Mon Jan _2 15:06"))
+	stamp := fmt.Sprintf("\"%s\"", time.Time(t).Format("Mon Jan _2 15:04"))
 	return []byte(stamp), nil
 }
 
