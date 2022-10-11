@@ -7,8 +7,8 @@ resource "aws_lambda_function" "sample-api" {
 
   timeout = 15
 
-  filename         = "./files/sample_api_lambda_wsize.zip"
-  source_code_hash = filebase64sha256("./files/sample_api_lambda_wsize.zip")
+  filename         = "./files/sample_api_lambda.zip"
+  source_code_hash = filebase64sha256("./files/sample_api_lambda.zip")
   environment {
     variables = {
       S3_BUCKET = aws_s3_bucket.sample_app_bucket.id
