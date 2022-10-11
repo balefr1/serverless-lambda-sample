@@ -62,8 +62,8 @@ resource "aws_api_gateway_deployment" "sample-api-deploy" {
     redeployment = sha1(jsonencode([
       aws_api_gateway_resource.sample-api-proxy.id,
       aws_api_gateway_method.sample-api-proxy.id,
-      aws_api_gateway_integration.sample-api-proxy_integration.id,
-      aws_api_gateway_rest_api_policy.sample-api.id
+      aws_api_gateway_integration.sample-api-proxy_integration.id
+      #aws_api_gateway_rest_api_policy.sample-api.id
     ]))
   }
 }
