@@ -44,10 +44,3 @@ data "aws_iam_policy_document" "allow_access_from_website_cfont" {
   }
 }
 
-resource "aws_s3_bucket_object" "index" {
-	provider = aws.aws-us
-  bucket = aws_s3_bucket.website_bucket.id
-  key    = "index.html"
-  source = "../sample_app/frontend/index.html"
-	content_type = "text/html"
-}
