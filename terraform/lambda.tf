@@ -1,7 +1,7 @@
 ##lambda
 resource "aws_lambda_function" "sample-api" {
   function_name    = "sample-api"
-  runtime          = "go1.x"
+  runtime          = "provided.al2"
   handler          = "main"
   role             = aws_iam_role.sample-api-lambda.arn
 

@@ -8,7 +8,7 @@ resource "aws_api_gateway_rest_api" "sample-api" {
 }
 
 resource "aws_api_gateway_rest_api_policy" "sample-api" {
-  count = 0
+  count = 1
   rest_api_id = aws_api_gateway_rest_api.sample-api.id
 
   policy = <<EOF

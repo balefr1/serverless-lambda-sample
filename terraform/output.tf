@@ -3,5 +3,5 @@ output "apigw_endpoint" {
 }
 
 output "cfront_endpoint" {
-    value = aws_cloudfront_distribution.sample_app_website.domain_name
+    value = "https://${aws_cloudfront_distribution.sample_app_website.domain_name}"
 }

@@ -7,11 +7,11 @@ resource "aws_s3_bucket" "website_bucket" {
   bucket = "sorint-serverless-demo-website"
 }
 
-resource "aws_s3_bucket_acl" "website_bucket" {
-	provider = aws.aws-us
-  bucket = aws_s3_bucket.website_bucket.id
-  acl    = "private"
-}
+# resource "aws_s3_bucket_acl" "website_bucket" {
+# 	provider = aws.aws-us
+#   bucket = aws_s3_bucket.website_bucket.id
+#   acl    = "private"
+# }
 
 resource "aws_s3_bucket_policy" "allow_access_from_website_cfont" {
 	provider = aws.aws-us
