@@ -24,7 +24,7 @@ resource "aws_api_gateway_rest_api_policy" "sample-api" {
       "Resource": "${format("%s/%s/%s/%s",aws_api_gateway_rest_api.sample-api.execution_arn,"*","*","*")}",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": ["130.25.92.10/32"]
+          "aws:SourceIp": ["217.198.133.118/32"]
         }
       }
     }

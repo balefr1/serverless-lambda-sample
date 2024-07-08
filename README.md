@@ -16,5 +16,4 @@ Terraform is used to deploy all cloud resources as per shown architecture.
 
 Notes:
 - after creating cloudfront distribution and s3 bucket for website, frontend (react) must be manually built and uploaded to s3.
-    In order to build react, go to frontend/react dir and run "npm run build"
-    Upload to s3 can be done using sed_sync script, specifying bucket name and cloudfront distribution fqdn.
+    use ./fe_build_sync.sh script

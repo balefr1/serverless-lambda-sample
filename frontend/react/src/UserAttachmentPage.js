@@ -3,7 +3,7 @@ import {Table,Label,Input,FormGroup,Button, Modal, ModalHeader, ModalBody, Modal
 import axios from 'axios'
 
 class UserAttachmentPage extends Component{
-    HOST= "api.example.com";
+    HOST=process.env.REACT_APP_USER_URL;
     API_URL = `https://${this.HOST}/dev/files`;
     DOWNLOAD_URL= `https://${this.HOST}/dev/file/`;
 
